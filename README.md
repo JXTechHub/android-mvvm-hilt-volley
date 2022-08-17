@@ -1,3 +1,3 @@
 # android-mvvm-hilt-volley
 
-This repository contains boilerplate codes to get started your android project using hilt. It includes performing network request using volley and various techniques like using kotlin extensions.
+In this repository, you'll find boilerplate code to get started with your Android project using Hilt and MVVM. There is also an example of how to use volley to perform network requests.
