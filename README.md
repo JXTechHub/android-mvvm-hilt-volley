@@ -4,3 +4,4 @@ In this repository, you'll find boilerplate code to get started with your Androi
 
 ## Other QOL add-ons
 - Kotlin Extensions
+- Timber 
