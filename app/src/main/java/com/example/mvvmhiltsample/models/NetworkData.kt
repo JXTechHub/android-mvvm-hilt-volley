@@ -3,7 +3,7 @@ package com.example.mvvmhiltsample.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "sampleData")
+@Entity(tableName = "sample_table")
 data class NetworkData(
     val name:String,
     val craft:String

@@ -30,7 +30,7 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSampleBinding.inflate(inflater,container,false)
         return binding!!.root
     }
@@ -41,9 +41,23 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showToast("FragmentSampleTest")
-        sampleViewModel.performNetworkRequest()
-        binding?.testGetButton?.setOnClickListener {
+
+        //Set observer for webData
+        sampleViewModel.webData.observe(viewLifecycleOwner){
+            Timber.d("It is:%s", it)
+            it.forEach { data->
+                sampleViewModel.insertData(data)
+            }
             collectData()
+        }
+
+        binding?.testGetButton?.setOnClickListener {
+            sampleViewModel.performNetworkRequest()
+        }
+
+        binding?.testDelButton?.setOnClickListener {
+            sampleViewModel.deleteData()
+            showToast("Data deleted")
         }
     }
 
@@ -53,9 +67,8 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
     private fun collectData(){
         lifecycleScope.launch(Dispatchers.IO) {
             sampleViewModel.networkData.collect{
-                Timber.d("it is :%s", it)
+                Timber.d("It in collectData():%s", it.size)
             }
         }
-
     }
 }

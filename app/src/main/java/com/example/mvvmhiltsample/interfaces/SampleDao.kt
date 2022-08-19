@@ -10,11 +10,15 @@ import com.example.mvvmhiltsample.models.NetworkData
 @Dao
 interface SampleDao {
 
-    //Ignore will ignore a new data if it has the same key
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    //REPLACE will replace the old data if it has the same key
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(data:NetworkData)
 
     // A FlowData stream from the DB to handle live continuous data
-    @Query("SELECT * FROM sampleData ORDER BY id ASC")
+    @Query("SELECT * FROM sample_table ORDER BY id ASC")
     fun getOrderedNetworkDataFlow(): Flow<List<NetworkData>>
+
+    //Delete data from table
+    @Query("DELETE FROM sample_table")
+    fun clearAll()
 }

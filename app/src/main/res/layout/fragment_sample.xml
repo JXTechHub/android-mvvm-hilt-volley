@@ -10,22 +10,39 @@
         android:id="@+id/sampleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/data_name"
+        android:text="@string/sample_feature"
+        android:paddingBottom="@dimen/half_vertical_margin"
         style="@style/appHeaderTitle"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/middleGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50"
+        />
 
     <Button
         android:id="@+id/testGetButton"
         android:text="@string/get_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        app:layout_constraintTop_toBottomOf="@+id/sampleTextView"
+        app:layout_constraintRight_toLeftOf="@+id/middleGuideline"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <Button
+        android:id="@+id/testDelButton"
+        android:text="@string/delete_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        app:layout_constraintTop_toBottomOf="@+id/sampleTextView"
+        app:layout_constraintLeft_toRightOf="@+id/middleGuideline"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

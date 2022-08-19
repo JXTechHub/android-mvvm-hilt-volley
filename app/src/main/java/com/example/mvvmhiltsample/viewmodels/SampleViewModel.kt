@@ -1,5 +1,6 @@
 package com.example.mvvmhiltsample.viewmodels
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mvvmhiltsample.models.NetworkData
@@ -16,10 +17,27 @@ class SampleViewModel@Inject constructor(private val sampleRepo: SampleRepo):Vie
     //Get live network data records from room DB as Flow
     val networkData: Flow<List<NetworkData>> = sampleRepo.allData
 
+    //Get data from web as live data and expose to view for observing
+    val webData: LiveData<List<NetworkData>> = sampleRepo.webData
+
     /**
-     * Launch network request to fetch data using coroutines
+     * Launch network request to fetch data
      */
-    fun performNetworkRequest() = viewModelScope.launch(Dispatchers.IO){
+    fun performNetworkRequest() = viewModelScope.launch{
         sampleRepo.performNetworkRequest()
+    }
+
+    /**
+     * Insert data into room DB
+     */
+    fun insertData(data:NetworkData) = viewModelScope.launch(Dispatchers.IO){
+        sampleRepo.insertData(data)
+    }
+
+    /**
+     * Delete data from room DB
+     */
+    fun deleteData() = viewModelScope.launch(Dispatchers.IO){
+        sampleRepo.clearAll()
     }
 }

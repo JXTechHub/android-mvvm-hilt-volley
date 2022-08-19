@@ -25,7 +25,7 @@ object AppModule {
         app,
         Database::class.java,
         "SampleDatabase"
-    ).build()
+    ).fallbackToDestructiveMigration().build()
 
     /**
      * Provides dao to be injected into repos

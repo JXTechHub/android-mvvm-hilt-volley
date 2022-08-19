@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name"><u>MVVMHiltSample</u></string>
-    <string name="switch_fragment">Switch Fragment</string>
-    <string name="data_name">Sample Data</string>
-    <string name="get_data">Get Data</string>
+    <string name="display_fragment">Display Fragment</string>
+    <string name="sample_feature">Sample Features</string>
+    <string name="get_data">Get Web Data</string>
+    <string name="delete_data">Delete Data</string>
 </resources>
