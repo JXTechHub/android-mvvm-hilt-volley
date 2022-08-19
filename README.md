@@ -2,8 +2,7 @@
 
 In this repository, you'll find boilerplate code to get started with your Android project using Hilt and MVVM. In addition, an example is provided to show how to use volley with Hilt to execute network requests to fetch data and populate the room database. Using flow and live data, the data is fetched from the database and displayed as a list in recyclerview.
 
-Sample dataset for demostration purpose: How many people are in space now:
-http://api.open-notify.org/astros.json
+Sample dataset for demostration purpose: [How many people are in space now](http://api.open-notify.org/astros.json)
 
 ## More Context
 It is not necessary to insert data into the room database as web data can be observed directly after receiving the json response, but this sample project is meant to illustrate flow and live data concepts.
