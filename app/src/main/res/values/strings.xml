@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MVVMHiltSample</string>
+    <string name="app_name"><u>MVVMHiltSample</u></string>
+    <string name="testText">test Fragment</string>
 </resources>
