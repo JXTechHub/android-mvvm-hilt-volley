@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name"><u>MVVMHiltSample</u></string>
-    <string name="testText">test Fragment</string>
+    <string name="fetch_data">Fetch Data</string>
+    <string name="data_name">Sample Data</string>
 </resources>

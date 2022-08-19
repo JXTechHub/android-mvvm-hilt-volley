@@ -55,6 +55,9 @@ dependencies {
 
     //Timber dependency
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Volley dependency
+    implementation 'com.android.volley:volley:1.2.1'
 }
 
 // Allow references to generated code
