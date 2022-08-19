@@ -1,5 +1,6 @@
 package com.example.mvvmhiltsample.models
 
 data class NetworkData(
-    val test:String
+    val name:String,
+    val craft:String
 )
