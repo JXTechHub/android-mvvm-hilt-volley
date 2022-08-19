@@ -12,7 +12,7 @@ import com.example.mvvmhiltsample.models.NetworkData
     entities = [
         NetworkData::class,
     ],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 

@@ -2,6 +2,7 @@ package com.example.mvvmhiltsample.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mvvmhiltsample.models.NetworkData
 import com.example.mvvmhiltsample.repository.SampleRepo
@@ -15,7 +16,7 @@ import javax.inject.Inject
 class SampleViewModel@Inject constructor(private val sampleRepo: SampleRepo):ViewModel() {
 
     //Get live network data records from room DB as Flow
-    val networkData: Flow<List<NetworkData>> = sampleRepo.allData
+    val networkData: LiveData<List<NetworkData>> = sampleRepo.allData.asLiveData()
 
     //Get data from web as live data and expose to view for observing
     val webData: LiveData<List<NetworkData>> = sampleRepo.webData

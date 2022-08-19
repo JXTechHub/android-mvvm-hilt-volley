@@ -6,4 +6,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="listItemStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>

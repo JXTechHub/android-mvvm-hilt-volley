@@ -60,7 +60,7 @@ class SampleRepo @Inject constructor(private val networkQueue: NetworkQueue,
                     val tempList = mutableListOf<NetworkData>()
                     for(each in 0 until jsonData.length()){
                         val filterData = jsonData.getJSONObject(each)
-                        tempList.add(NetworkData(filterData.getString("name"),
+                        tempList.add(NetworkData(each,filterData.getString("name"),
                             filterData.getString("craft")))
                     }
                     webData.postValue(tempList)

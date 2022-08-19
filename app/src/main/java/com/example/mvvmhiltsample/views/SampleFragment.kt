@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvvmhiltsample.R
+import com.example.mvvmhiltsample.adapter.SampleAdapter
 import com.example.mvvmhiltsample.databinding.FragmentSampleBinding
 import com.example.mvvmhiltsample.extensions.showToast
 import com.example.mvvmhiltsample.viewmodels.SampleViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
 /**
@@ -48,7 +48,6 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
             it.forEach { data->
                 sampleViewModel.insertData(data)
             }
-            collectData()
         }
 
         binding?.testGetButton?.setOnClickListener {
@@ -59,16 +58,23 @@ class SampleFragment : Fragment(R.layout.fragment_sample) {
             sampleViewModel.deleteData()
             showToast("Data deleted")
         }
+
+        displayData()
     }
 
     /**
-     * Function to collect network data from flow
+     * Function to display network data by observing changes from room db
+     * Display data in recycle view
      */
-    private fun collectData(){
-        lifecycleScope.launch(Dispatchers.IO) {
-            sampleViewModel.networkData.collect{
-                Timber.d("It in collectData():%s", it.size)
+    private fun displayData(){
+        sampleViewModel.networkData.observe(viewLifecycleOwner){
+            binding?.sampleRecyclerList?.apply {
+                layoutManager = LinearLayoutManager(requireContext(),GridLayoutManager.VERTICAL,false)
+                val recycleAdapter = SampleAdapter()
+                adapter = recycleAdapter
+                recycleAdapter.submitList(it)
             }
         }
     }
+
 }
