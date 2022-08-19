@@ -5,7 +5,7 @@ In this repository, you'll find boilerplate code to get started with your Androi
 Sample dataset for demostration purpose: [How many people are in space now](http://api.open-notify.org/astros.json)
 
 ## More Context
-It is not necessary to insert data into the room database as web data can be observed directly after receiving the json response, but this sample project is meant to illustrate flow and live data concepts.
+It is not necessary to insert data into the room database as web data can be observed directly after receiving the json response, but this sample project is meant to illustrate room database, flow and live data concepts.
 
 ## Other QOL stuffs
 1. View Binding
