@@ -58,6 +58,11 @@ dependencies {
 
     //Volley dependency
     implementation 'com.android.volley:volley:1.2.1'
+
+    //Room dependencies
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 }
 
 // Allow references to generated code

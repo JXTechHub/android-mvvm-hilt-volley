@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         showToast("ActivitySampleTest")
 
-        binding.testButton.setOnClickListener {
+        binding.testFetchButton.setOnClickListener {
             changeFragment(SampleFragment())
             Timber.d("Sample Fragment Displayed")
         }
